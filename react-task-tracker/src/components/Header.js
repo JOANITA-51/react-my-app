@@ -2,8 +2,9 @@
 
 const Header = ({title}) => {
     return (
-        <header>
-            <h1 style ={HeadingStyle}>{title}</h1>
+        <header className='header'>
+            <h1 >{title}</h1>
+            <button className='btn'>Add</button>
         </header>
     )
 }
@@ -14,8 +15,11 @@ Header.defaultProps ={
 Header.propTypes = {
     title:PropTypes.string,
 }
-const HeadingStyle = {
-    color:'red', backgroundColor:'blue'
-}
+
+//CSS in JS
+// const HeadingStyle = {
+//     color:'red', 
+//     backgroundColor:'blue'
+// }
 
 export default Header
