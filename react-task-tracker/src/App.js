@@ -25,7 +25,11 @@ const App = () => {
 ])
 //Add Task
 const addTask = (task)=> {
-  console.log(task)
+  //creating a random id
+  const id= Math.floor(Math.random()+ 100) + 1
+  const newTask = {id, ...task}
+  setTasks([...tasks, newTask])
+
 }
 //Delete Task
 const deleteTask = (id) =>{
