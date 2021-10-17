@@ -46,7 +46,10 @@ const deleteTask = (id) =>{
   }
   return (
     <div className="container">
-      <Header onAdd={()=>setShowAddTask(!showAddTask)}/>
+      <Header 
+      onAdd={()=>setShowAddTask(!showAddTask)}
+      showAdd={showAddTask}
+      />
       {/* passing a prop into add task */
         showAddTask &&   <AddTask onAdd={addTask}/>
       }
