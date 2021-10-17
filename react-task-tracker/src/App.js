@@ -8,13 +8,21 @@ const App = () => {
 
   //used when you want smth to happen when the page loads
   useEffect(()=>{
-    const fetchTasks = async () => {
-      const res = await fetch ('http://localhost:5000/tasks')
-      const data = await res.json() //gives us the json data
-      console.log(data)
+    //Use async because it calls fetch tasks which returns a promise
+    const getTasks = async () => {
+      const tasksFromServer = await fetchTasks()
+      setTasks(tasksFromServer)
     }
-    fetchTasks()
+
+    getTasks()
   }, [])
+
+  // Fetch Tasks
+  const fetchTasks = async () => {
+    const res = await fetch ('http://localhost:5000/tasks')
+    const data = await res.json() //gives us the json data
+    return data
+  }
 
 //Add Task
 const addTask = (task)=> {
