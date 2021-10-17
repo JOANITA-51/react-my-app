@@ -2,6 +2,7 @@ import {useState, useEffect } from 'react'
 import Header from "./components/Header"
 import Tasks from "./components/Tasks"
 import AddTask from"./components/AddTask"
+import Footer from "./components/Footer"
 const App = () => {
   const [showAddTask, setShowAddTask] = useState (false)
   const [tasks, setTasks] = useState([ ])//seTasks changes any part of the state
@@ -94,6 +95,7 @@ const deleteTask = async(id) =>{
       ( <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>):
       ('No Tasks to show buddy!')
       }
+      <Footer/>
     </div>
   );
 }
