@@ -25,11 +25,22 @@ const App = () => {
   }
 
 //Add Task
-const addTask = (task)=> {
+const addTask = async (task)=> {
+  const res = await fetch ('http://localhost:5000/tasks',{
+    method: 'POST',
+    headers:{
+      'Content-type' : 'application/json'
+    },
+    body: JSON.stringify(task)
+  })
+
+  const data = await res.json()
+  setTasks([...tasks, data]) //take in all that is in the tasks and pass it on to the data created
+
   //creating a random id
-  const id= Math.floor(Math.random()+ 100) + 1
-  const newTask = {id, ...task}
-  setTasks([...tasks, newTask])
+  // const id= Math.floor(Math.random()+ 100) + 1
+  // const newTask = {id, ...task}
+  // setTasks([...tasks, newTask])
 
 }
 
