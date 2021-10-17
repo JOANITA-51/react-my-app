@@ -27,13 +27,18 @@ const App = () => {
 const deleteTask = (id) =>{
   setTasks(tasks.filter((task)=> task.id !== id))
 }
+
+//Toggle Reminder
+  const toggleReminder = (id) => {
+    console.log(id)
+  }
   return (
     <div className="container">
       <Header />
     
       {/* if there is no task left , then display a message */
       tasks.length>0?
-      ( <Tasks tasks={tasks} onDelete={deleteTask}/>):
+      ( <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>):
       ('No Tasks to show buddy!')
       }
     </div>
