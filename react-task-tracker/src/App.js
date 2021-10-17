@@ -89,7 +89,10 @@ const deleteTask = async(id) =>{
       onAdd={()=>setShowAddTask(!showAddTask)}
       showAdd={showAddTask}
       />
-      {/* passing a prop into add task */
+     
+      <Route path = '/' exact render = {(props)=>(
+        <>
+           {/* passing a prop into add task */
         showAddTask &&   <AddTask onAdd={addTask}/>
       }
         
@@ -98,6 +101,8 @@ const deleteTask = async(id) =>{
       ( <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>):
       ('No Tasks to show buddy!')
       }
+        </>
+      )}/>
       <Route path ='/about' component ={About}/>
       <Footer/>
       
