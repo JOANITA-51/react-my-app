@@ -23,7 +23,10 @@ const App = () => {
       reminder: false, 
   } ,
 ])
-
+//Add Task
+const addTask = (task)=> {
+  console.log(task)
+}
 //Delete Task
 const deleteTask = (id) =>{
   setTasks(tasks.filter((task)=> task.id !== id))
@@ -39,7 +42,8 @@ const deleteTask = (id) =>{
   return (
     <div className="container">
       <Header />
-      <AddTask/>
+      {/* passing a prop into add task */}
+      <AddTask onAdd={addTask}/>
     
       {/* if there is no task left , then display a message */
       tasks.length>0?
