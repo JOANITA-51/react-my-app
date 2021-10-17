@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import Header from "./components/Header"
 import Tasks from "./components/Tasks"
+import AddTask from"./components/AddTask"
 const App = () => {
   const [tasks, setTasks] = useState([ //seTasks changes any part of the state
     {
@@ -38,6 +39,7 @@ const deleteTask = (id) =>{
   return (
     <div className="container">
       <Header />
+      <AddTask/>
     
       {/* if there is no task left , then display a message */
       tasks.length>0?
