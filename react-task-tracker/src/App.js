@@ -3,6 +3,7 @@ import Header from "./components/Header"
 import Tasks from "./components/Tasks"
 import AddTask from"./components/AddTask"
 const App = () => {
+  const [showAddTask, setShowAddTask] = useState (false)
   const [tasks, setTasks] = useState([ //seTasks changes any part of the state
     {
         id: 1, 
@@ -45,10 +46,11 @@ const deleteTask = (id) =>{
   }
   return (
     <div className="container">
-      <Header />
-      {/* passing a prop into add task */}
-      <AddTask onAdd={addTask}/>
-    
+      <Header onAdd={()=>setShowAddTask(!showAddTask)}/>
+      {/* passing a prop into add task */
+        showAddTask &&   <AddTask onAdd={addTask}/>
+      }
+        
       {/* if there is no task left , then display a message */
       tasks.length>0?
       ( <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>):
