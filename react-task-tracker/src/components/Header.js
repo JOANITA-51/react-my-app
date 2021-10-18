@@ -1,6 +1,7 @@
  import PropTypes from 'prop-types'
  import Button from './button'
  import {useLocation} from 'react-router-dom'
+ import Accordion from './Accordion'
 
 const Header = ({title, onAdd, showAdd }) => {
     const location = useLocation ()
@@ -13,6 +14,7 @@ const Header = ({title, onAdd, showAdd }) => {
                text = {showAdd?'close':'Add'} onClick={onAdd}
               />
            } 
+           <Accordion/>
         </header>
     )
 }
